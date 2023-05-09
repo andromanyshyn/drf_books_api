@@ -11,15 +11,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
 
+env = environ.Env(
+    # set casting, default value
+    SECRET_KEY=(str),
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2+$b!!xuaht&rm_nt!@9j=3!nw1t+kiu#m*x+wgx%72h82i+lv'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -121,7 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # REST API
 
 AUTH_USER_MODEL = 'app_books.Author'
-
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
