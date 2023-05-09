@@ -1,0 +1,32 @@
+[
+  {
+    "model": "app_books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Jane Eyre",
+      "description": "Jane Eyre is a beautiful book.",
+      "publish_date": "2023-05-09",
+      "author": 5
+    }
+  },
+  {
+    "model": "app_books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Wuthering Heights",
+      "description": "Wuthering Heights is great book.",
+      "publish_date": "2023-05-09",
+      "author": 6
+    }
+  },
+  {
+    "model": "app_books.book",
+    "pk": 3,
+    "fields": {
+      "title": "Moby Dick",
+      "description": "Moby Dick is wonderful book.",
+      "publish_date": "2023-05-09",
+      "author": 7
+    }
+  }
+]
