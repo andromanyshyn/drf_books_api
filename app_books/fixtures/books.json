@@ -28,5 +28,15 @@
       "publish_date": "2023-05-09",
       "author": 7
     }
+  },
+  {
+    "model": "app_books.book",
+    "pk": 5,
+    "fields": {
+      "title": "The Notebook",
+      "description": "The Notebook is a wonderful book !",
+      "publish_date": "2023-05-12",
+      "author": 9
+    }
   }
 ]
