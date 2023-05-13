@@ -58,10 +58,18 @@ class BookAPIDelete(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
+    def get(self, request, book_id):
+        try:
+            book = Book.objects.get(id=book_id)
+        except Exception:
+            return Response(HTTP_400_BAD_REQUEST)
+        serializer = BookSerializer(book)
+        return Response(serializer.data)
+
     def delete(self, request, book_id):
         try:
             book = Book.objects.get(id=book_id)
         except Exception:
             return Response(HTTP_400_BAD_REQUEST)
         book.delete()
-        return Response(HTTP_204_NO_CONTENT)
+        return Response(status=HTTP_204_NO_CONTENT)
