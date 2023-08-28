@@ -1,11 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from datetime import date
 
 
 class Author(AbstractUser):
-    first_name = None
-    date_of_birth = models.DateField(default=date.today)
+    date_of_birth = models.DateField()
 
     class Meta:
         verbose_name = 'Author'
@@ -15,16 +13,8 @@ class Author(AbstractUser):
 class Book(models.Model):
     title = models.CharField(max_length=32, unique=True)
     description = models.TextField()
-    publish_date = models.DateField(default=date.today)
-    author = models.ForeignKey(
-        to=Author, on_delete=models.CASCADE,
-        related_name='books', default=''
-    )
-
-    class Meta:
-        ordering = (
-            'title',
-        )
+    publish_date = models.DateField()
+    author = models.ForeignKey(to=Author, on_delete=models.CASCADE, related_name='books')
 
     def __str__(self):
         return self.title

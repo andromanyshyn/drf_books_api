@@ -9,7 +9,7 @@ class AuthorAdmin(admin.ModelAdmin):
         'id', 'date_of_birth',
     )
     fields = (
-        'username', 'last_name',
+        'username', 'last_name', "date_of_birth"
     )
 
 
